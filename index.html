@@ -3,42 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mind MY LOVE</title>
+    <title>Mind MY LOVE - 8-bit Cats</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            background: linear-gradient(to bottom, #ffb6c1, #98ff98);
-            color: #333;
             margin: 0;
             padding: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to bottom, #ffb6c1, #98ff98);
+            color: #333;
         }
         h1 {
-            margin-top: 20%;
-            font-size: 2.5em;
+            text-align: center;
+            margin: 20px;
+            font-size: 2em;
         }
-        p {
-            font-size: 1.2em;
+        .button-container {
+            text-align: center;
+            margin-top: 10px;
         }
         .button {
             display: inline-block;
-            margin-top: 20px;
             padding: 10px 20px;
-            font-size: 1.2em;
+            font-size: 1em;
             color: white;
             background-color: #ff69b4;
             border: none;
             border-radius: 5px;
             text-decoration: none;
+            cursor: pointer;
         }
         .button:hover {
             background-color: #ff1493;
         }
+        .cat {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://i.ibb.co/9vBkpMb/8bit-cat.png'); /* ลิงก์รูปแมว 8-bit */
+            background-size: cover;
+            animation: move 5s linear infinite;
+        }
+        @keyframes move {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(100vw);
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Welcome to Mind MY LOVE ❤️</h1>
-    <p>This website is made with love, just for you!</p>
-    <a href="https://example.com" class="button">Click Here to See the Surprise</a>
+    <h1>Welcome to Mind MY LOVE - 8-bit Cats</h1>
+    <div class="button-container">
+        <button class="button" onclick="addCat()">Add More Cats 🐾</button>
+    </div>
+    <script>
+        // ฟังก์ชันเพิ่มแมว
+        function addCat() {
+            const cat = document.createElement('div');
+            cat.classList.add('cat');
+            cat.style.top = Math.random() * window.innerHeight + 'px'; // ตำแหน่ง Y แบบสุ่ม
+            document.body.appendChild(cat);
+        }
+
+        // สร้างแมวตัวแรก
+        window.onload = () => {
+            addCat();
+        };
+    </script>
 </body>
 </html>
